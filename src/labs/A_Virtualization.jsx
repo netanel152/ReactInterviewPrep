@@ -36,9 +36,11 @@ export default function VirtualizationLab() {
           />
         ) : (
           // הדרך השגויה: תוקע את הדפדפן
-          hugeData.map(item => (
-            <div key={item.id} style={{ height: 35 }}>{item.text}</div>
-          ))
+          <div style={{ height: 400, overflow: 'auto' }}>
+            {hugeData.map(item => (
+              <div key={item.id} style={{ height: 35 }}>{item.text}</div>
+            ))}
+          </div>
         )}
       </div>
     </div>

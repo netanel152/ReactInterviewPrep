@@ -40,3 +40,25 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Lab Styles */
+.lab-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.row-item {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box; /* Important for fixed height */
+  background: white;
+  color: black;
+}
+
+.row-item:nth-child(even) {
+  background: #f9f9f9;
+}
