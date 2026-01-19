@@ -1,16 +1,54 @@
-# React + Vite
+# React Interview Prep Labs 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A collection of hands-on labs designed to master advanced React patterns, performance optimization, and common interview challenges.
 
-Currently, two official plugins are available:
+## 🧪 Labs Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### [Lab A: DOM Virtualization](./src/labs/A_Virtualization.jsx)
+- **Challenge:** Rendering 10,000+ items without freezing the browser.
+- **Solution:** Implementing windowing/virtualization using `react-window` (v2.2.5).
+- **Key Concepts:** DOM nodes recycling, scroll performance.
 
-## React Compiler
+### [Lab B: Race Conditions](./src/labs/B_RaceConditions.jsx)
+- **Challenge:** Handling asynchronous data fetching where multiple requests overlap.
+- **Solution:** Using `AbortController` to cancel stale requests and prevent "last-request-wins" bugs.
+- **Key Concepts:** `useEffect` cleanup, Fetch API signals.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### [Lab C: Rerender Hell](./src/labs/C_RerenderHell.jsx)
+- **Challenge:** Identifying and fixing unnecessary component re-renders.
+- **Key Concepts:** `React.memo`, `useMemo`, `useCallback`, Profiler API.
 
-## Expanding the ESLint configuration
+### [Lab D: Context Trap](./src/labs/D_ContextTrap.jsx)
+- **Challenge:** Performance pitfalls of large Context providers and how they trigger global re-renders.
+- **Key Concepts:** Context splitting, selector patterns, state colocation.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### [Lab E: Real-Time Updates](./src/labs/E_RealTimeUpdates.jsx)
+- **Challenge:** Efficiently updating the UI with high-frequency data streams (e.g., stock tickers, chat).
+- **Key Concepts:** Refs for mutable state, batching updates, throttling.
+
+## 🛠️ Tech Stack
+- **Framework:** React 19
+- **Build Tool:** Vite
+- **Libraries:** react-window (v2.2.5), Axios, Lodash, Recharts.
+
+## 🚀 Getting Started
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Run development server:**
+   ```bash
+   npm run dev
+   ```
+
+3. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+## ⚠️ Note on `react-window`
+This project uses `react-window` version **2.2.5**. 
+- Import `List` or `Grid` directly (not `FixedSizeList`).
+- `rowProps` or `cellProps` are **required** (pass `{}` if empty) to avoid runtime errors.
